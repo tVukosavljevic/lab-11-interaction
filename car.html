@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>
+
+	</title>
+</head>
+<body>
+	<canvas id="sketch" width="800" height="600">
+</canvas>
+	<script>
+	document.addEventListener('DOMContentLoaded', main);
+
+var sketch;
+var context;
+function main() {
+	sketch = document.getElementById('sketch');
+	context = sketch.getContext("2d");
+	
+	sketch.addEventListener("click", function(event) {
+	context.clearRect(0, 0, sketch.offsetWidth, sketch.offsetHeight);
+	context.fillStyle = "839472"
+
+	context.fillRect(event.x, event.y, 200, 100)
+	context.fillStyle = "FF0066"
+	draw_circle(event.x, event.y + 100, 40)
+	draw_circle(event.x + 200, event.y + 100, 40);
+
+	});
+
+}
+function draw_circle(x, y, r) {
+	context.beginPath();
+	context.arc(x, y, r, 0, 2 * Math.PI, true);
+	context.closePath();
+	context.fill();
+
+}
+</script>
+</body>
+</html>
